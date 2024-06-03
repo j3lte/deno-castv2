@@ -1,0 +1,17 @@
+{
+  "name": "@j3lte/castv2",
+  "version": "1.0.0",
+  "exports": "./mod.ts",
+  "tasks": {},
+  "imports": {
+    "@denosaurs/event": "jsr:@denosaurs/event@^2.0.2",
+    "protobufjs": "npm:protobufjs@^7.3.0"
+  },
+  "publish": {
+    "include": [
+      "LICENSE",
+      "README.md",
+      "src/**/*.ts"
+    ]
+  }
+}
