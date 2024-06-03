@@ -8,6 +8,8 @@ This library is intended to be used as a base for building Cast v2 applications
 in Deno. It is not a complete implementation and untested. Don't use it in
 production.
 
+> Note: The server part of the original project is not implemented, only interested in the client
+
 ## License
 
 The MIT License (MIT)
