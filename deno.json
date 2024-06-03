@@ -8,13 +8,5 @@
   "imports": {
     "@denosaurs/event": "jsr:@denosaurs/event@^2.0.2",
     "protobufjs": "npm:protobufjs@^7.3.0"
-  },
-  "publish": {
-    "include": [
-      "LICENSE",
-      "README.md",
-      "src/*.ts",
-      "mod.ts"
-    ]
   }
 }
