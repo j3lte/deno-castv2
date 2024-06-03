@@ -8,5 +8,10 @@
   "imports": {
     "@denosaurs/event": "jsr:@denosaurs/event@^2.0.2",
     "protobufjs": "npm:protobufjs@^7.3.0"
+  },
+  "publish": {
+    "exclude": [
+      ".vscode"
+    ]
   }
 }
