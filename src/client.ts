@@ -48,7 +48,7 @@ export class Client extends EventEmitter<ClientEventTypes> {
       this.once("connect", callback);
     }
 
-    const onpacket = (buf: Buffer) => {
+    const onpacket = (buf: Uint8Array) => {
       const message = CastMessage.parse(buf) as SendMessage & Message;
 
       if (message.protocolVersion !== 0) {
@@ -61,15 +61,23 @@ export class Client extends EventEmitter<ClientEventTypes> {
         return;
       }
 
-      this.emit(
-        "message",
-        message.sourceId,
-        message.destinationId,
-        message.namespace,
-        message.payloadType === 1 // BINARY
-          ? message.payloadBinary
-          : message.payloadUtf8,
-      );
+      if (message.payloadType === 1) {
+        this.emit(
+          "message",
+          message.sourceId,
+          message.destinationId,
+          message.namespace,
+          message.payloadBinary!, // to be checked
+        );
+      } else {
+        this.emit(
+          "message",
+          message.sourceId,
+          message.destinationId,
+          message.namespace,
+          message.payloadUtf8 as string,
+        );
+      }
     };
 
     const onerror = (err: Error) => {
@@ -153,7 +161,7 @@ export class Client extends EventEmitter<ClientEventTypes> {
     destinationId: string,
     namespace: string,
     encoding?: string,
-  ) {
+  ): Channel {
     return new Channel(this, sourceId, destinationId, namespace, encoding);
   }
 }

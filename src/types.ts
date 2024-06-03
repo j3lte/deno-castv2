@@ -38,7 +38,7 @@ export type ClientEventTypes = {
   connect: [];
   close: [];
   error: [Error];
-  message: [string, string, string, Buffer | string];
+  message: [string, string, string, string | Buffer];
 };
 
 export interface ClientConnectOptions {

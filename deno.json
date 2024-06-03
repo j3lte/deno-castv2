@@ -13,7 +13,8 @@
     "include": [
       "LICENSE",
       "README.md",
-      "src/**/*.ts"
+      "src/*.ts",
+      "mod.ts"
     ]
   }
 }

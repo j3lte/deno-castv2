@@ -1,5 +1,6 @@
 import { EventEmitter } from "@denosaurs/event";
 import type { ChannelEvents, ClientEventTypes } from "./types.ts";
+import type { Buffer } from "node:buffer";
 
 export class Channel extends EventEmitter<ChannelEvents> {
   bus: EventEmitter<ClientEventTypes>;
@@ -21,12 +22,16 @@ export class Channel extends EventEmitter<ChannelEvents> {
       sourceId: string,
       destinationId: string,
       namespace: string,
-      data: string,
+      data: string | Buffer,
     ) => {
       if (sourceId !== this.destinationId) return;
       if (destinationId !== this.sourceId && destinationId !== "*") return;
       if (namespace !== this.namespace) return;
-      this.emit("message", decode(data, this.encoding), destinationId === "*");
+      this.emit(
+        "message",
+        decode(data as string, this.encoding),
+        destinationId === "*",
+      );
     };
 
     const onClose = () => {
