@@ -30,7 +30,7 @@ export class Client extends EventEmitter<ClientEventTypes> {
   ps: PacketStreamWrapper | null = null;
 
   constructor() {
-    super();
+    super(0);
   }
 
   /**

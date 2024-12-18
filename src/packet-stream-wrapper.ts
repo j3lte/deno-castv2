@@ -14,7 +14,7 @@ export class PacketStreamWrapper
   packetLength: number;
 
   constructor(stream: TLSSocket) {
-    super();
+    super(0);
 
     this.stream = stream;
 

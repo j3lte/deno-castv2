@@ -16,7 +16,7 @@ export class Channel extends EventEmitter<ChannelEvents> {
     namespace: string,
     encoding?: string,
   ) {
-    super();
+    super(0);
 
     const onMessage = (
       sourceId: string,
