@@ -1,13 +1,13 @@
 {
   "name": "@j3lte/castv2",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "exports": "./mod.ts",
   "tasks": {
     "fmt": "deno fmt"
   },
   "imports": {
     "@denosaurs/event": "jsr:@denosaurs/event@^2.0.2",
-    "protobufjs": "npm:protobufjs@^7.3.0"
+    "protobufjs": "npm:protobufjs@^7.4.0"
   },
   "publish": {
     "exclude": [

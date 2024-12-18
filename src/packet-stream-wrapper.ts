@@ -47,6 +47,10 @@ export class PacketStreamWrapper
   send(buf: Uint8Array) {
     const header = Buffer.alloc(4);
     header.writeUInt32BE(buf.length, 0);
-    this.stream.write(Buffer.concat([header, buf]));
+    const arr: Uint8Array = new Uint8Array(header);
+    const newBuf = new Uint8Array(arr.length + buf.length);
+    newBuf.set(arr);
+    newBuf.set(buf, arr.length);
+    this.stream.write(newBuf);
   }
 }
